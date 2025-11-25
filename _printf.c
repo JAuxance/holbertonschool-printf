@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[index1] != '%')
 		{
-			_putchar(format[index1]);
+			putchar(format[index1]);
 			count++;
 			index1++;
 			continue;
@@ -60,13 +60,12 @@ int _printf(const char *format, ...)
 
 		if (!found)
 		{
-			_putchar('%');
-			_putchar(format[index1]);
+			putchar('%');
+			putchar(format[index1]);
 			count += 2;
 		}
 		index1++;
-	
-}
+	}
 	va_end(args);
 	return (count);
 }
