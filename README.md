@@ -53,4 +53,4 @@ int main(void)
 - Lucas METTETAL 
 - Auxance JOURDAN
 
-- Projet Holberton School
+`Projet Holberton School`
