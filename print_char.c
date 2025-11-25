@@ -45,4 +45,9 @@ int _putchar(char character)
 
 int print_char_path(va_list args)
 {
+	int c = va_arg(args, int);
+	char ch = (char)c;
+
+	_putchar(ch);
+	return (1);
 }
