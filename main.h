@@ -11,7 +11,13 @@ int print_char(char c);
 int print_string(char *s);
 
 /* - number display functions - */
-void print_int(int n);
+int print_int(int n);
+
+/* - path functions - */
+int print_char_path(va_list args);
+int print_string_path(va_list args);
+int print_int_path(va_list args);
+int print_percent_path(va_list args);
 
 /* - mini-printf - */
 int _printf(const char *format, ...);
