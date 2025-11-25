@@ -3,8 +3,6 @@
 
 #include <stdarg.h>
 #include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
 
 /* - character/string display functions - */
 int print_char(char c);
@@ -21,6 +19,9 @@ int print_percent_path(va_list args);
 
 /* - mini-printf - */
 int _printf(const char *format, ...);
+
+/* - putchar function - */
+int _putchar(char character);
 
 /**
  * struct print_format - structure to map format specifiers to functions
