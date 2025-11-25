@@ -1,84 +1,54 @@
-🖨️ holbertonschool-printf
+# _printf
 
-Reproduction de la fonction printf du langage C dans le cadre du cursus Holberton School.
-Ce projet consiste à réimplémenter une version simplifiée (mais fonctionnelle) de printf, en gérant plusieurs spécificateurs de format et en respectant les contraintes techniques imposées.
+## C'est quoi ?
 
-🎯 Objectif
+Une version simplifiée de `printf` qui affiche du texte avec des formats.
 
-Créer une fonction :
+## Qu'est-ce que ça fait ?
 
-int _printf(const char *format, ...);
+| Format | Affiche | Exemple |
+|--------|---------|---------|
+| `%c` | Un caractère | `_printf("%c", 'A')` → `A` |
+| `%s` | Une chaîne | `_printf("%s", "Hello")` → `Hello` |
+| `%d` ou `%i` | Un nombre | `_printf("%d", 42)` → `42` |
+| `%%` | Le symbole % | `_printf("%%")` → `%` |
 
+## Comment compiler ?
 
-qui affiche du texte formaté dans la sortie standard, en gérant différents types d’arguments variadiques.
+```bash
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o test
+```
 
-🛠️ Fonctionnalités prises en charge
+## Exemples simples
 
-Votre _printf doit gérer au minimum :
+```c
+#include "main.h"
 
-Spécificateur	Description
-%c	Affiche un caractère
-%s	Affiche une chaîne de caractères
-%d / %i	Affiche un entier signé
-%%	Affiche le caractère %
+int main(void)
+{
+    _printf("Hello\n");
+    _printf("Lettre: %c\n", 'A');
+    _printf("Mot: %s\n", "monde");
+    _printf("Nombre: %d\n", 42);
+    
+    return (0);
+}
+```
 
-Selon votre progression, vous pouvez ajouter d'autres spécificateurs :
+## Les fichiers du projet
 
-%b → conversion en binaire
+- `_printf.c` - La fonction principale
+- `print_char.c` - Pour afficher les caractères et chaînes
+- `print_number.c` - Pour afficher les nombres
+- `main.h` - Les prototypes des fonctions
 
-%u → unsigned int
+## Comment ça marche (simple)
 
-%o → octal
+1. `_printf` lit la chaîne caractère par caractère
+2. Quand il voit un `%`, il regarde le caractère suivant
+3. Il appelle la bonne fonction pour afficher la valeur
+4. Il compte combien de caractères ont été affichés
 
-%x / %X → hexadécimal
-
-%p → pointeur
-
-etc.
-
-📁 Organisation du projet
-
-Exemple de structure typique du repo :
-
-holbertonschool-printf/
-│
-├── _printf.c
-├── get_func.c
-├── functions.c
-├── functions2.c
-├── main.h
-├── README.md
-└── man_3_printf
-
-📌 Contraintes
-
-Pas d’utilisation de la fonction printf standard.
-
-Seulement les appels système autorisés (write, malloc, free, etc.).
-
-Respect strict des normes Holberton (Betty).
-
-Gestion correcte des arguments variadiques (va_list, va_start, va_arg, va_end).
-
-Le projet doit renvoyer le nombre de caractères imprimés.
-
-🚀 Compilation
-
-Compiler avec :
-
-gcc -Wall -Werror -Wextra -pedantic *.c -o printf
-
-🧪 Exemple d'utilisation
-_printf("Hello %s! You are %d years old.\n", "Lucas", 26);
-
-
-Sortie :
-
-Hello Lucas! You are 26 years old.
-
-🧑‍🤝‍🧑 Auteurs
-
-Projet réalisé dans le cadre du programme Holberton par :
-
-Lucas Mettetal
-Auxance Jourdan
+## Auteurs
+Lucas METTETAL Auxance JOURDAN
+Projet Holberton School
