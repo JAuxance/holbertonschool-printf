@@ -27,6 +27,7 @@ int _printf(const char *format, ...);
  * @specifier: format specifier character
  * @print_function: pointer to the corresponding print function
  */
+
 typedef struct print_format
 {
 	char specifier;
