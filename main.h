@@ -22,7 +22,7 @@ int _printf(const char *format, ...);
 typedef struct print_format
 {
 	char specifier;
-	void (*print_function)(va_list args);
+	int (*print_function)(va_list args);
 } t_print_format;
 
 #endif /* MAIN_H */
