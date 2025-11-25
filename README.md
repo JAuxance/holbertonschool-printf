@@ -50,5 +50,7 @@ int main(void)
 4. Il compte combien de caractères ont été affichés
 
 ## Auteurs
-Lucas METTETAL Auxance JOURDAN
-Projet Holberton School
+- Lucas METTETAL 
+- Auxance JOURDAN
+
+- Projet Holberton School
