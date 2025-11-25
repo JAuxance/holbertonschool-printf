@@ -60,13 +60,12 @@ int _printf(const char *format, ...)
 
 		if (!found)
 		{
-			_putchar('%');
-			_putchar(format[index1]);
+			putchar('%');
+			putchar(format[index1]);
 			count += 2;
 		}
 		index1++;
-	
-}
+	}
 	va_end(args);
 	return (count);
 }
