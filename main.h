@@ -3,6 +3,8 @@
 
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 /* - character/string display functions - */
 int print_char(char c);
