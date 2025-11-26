@@ -24,7 +24,7 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o test
 - Lucas METTETAL
 - Auxance JOURDAN
 
-<a href="https://www.holbertonschool.fr/" target="_blank" style="text-decoration: none;">
+<a href="https://www.holbertonschool.fr/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
   <div style="display: flex; align-items: center; gap: 6px;">
     <em>Holberton School Project</em>
     <img src="https://github.com/user-attachments/assets/11bb1746-3bff-4506-9dd8-8a0a464eacd9"
