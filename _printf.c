@@ -8,21 +8,20 @@
  */
 int _printf(const char *format, ...)
 {
-    va_list args;                 /* variable arguments after 'format' */
-    unsigned int index1 = 0;      /* index to traverse 'format' */
-    int index2;                   /* index to traverse the dispatch table */
-    int count = 0;                /* total number of printed characters */
-    int found;                    /* whether a specifier was matched */
+    va_list args;            /* stockage of variadic arguments */
+    unsigned int index1 = 0; /* current position in the 'format' chain */
+    int index2;              /* index to traverse the table 'ops' */
+    int count = 0;           /* total number of printed characters */
+    int found;               /* (0 or 1) indicating whether a known specifier has been found */
 
-    /* Dispatch table: maps a specifier to its handler function */
+    /* An array of structures with a format character and function pointer */
     t_print_format ops[] = {
         {'c', print_char_path},
         {'s', print_string_path},
         {'d', print_int_path},
         {'i', print_int_path},
         {'%', print_percent_path},
-        {'\0', NULL}
-    };
+        {'\0', NULL}};
 
     /* Guard: format must not be NULL */
     if (format == NULL)
@@ -45,16 +44,19 @@ int _printf(const char *format, ...)
 
         /* Found '%': advance to the specifier character */
         index1++;
-        if (format[index1] == '\0')
+
+        if (format[index1] == '\0') /*If this next character is the null terminator,
+                                     it means ends with a single %,
+                                     In that case I call va_end and return -1.*/
         {
             va_end(args);
             return (-1);
         }
-
+        /*preparation of ops[]*/
         found = 0;
         index2 = 0;
 
-        /* Look up a matching specifier in the dispatch table */
+        /* while in the table ops[] */
         while (ops[index2].specifier != '\0')
         {
             if (ops[index2].specifier == format[index1])
@@ -77,7 +79,7 @@ int _printf(const char *format, ...)
         index1++;
     }
 
-    /* Cleanup and return the total */
+    /* Clean up and return the total number of characters printed*/
     va_end(args);
     return (count);
 }
