@@ -1,6 +1,6 @@
 # _printf
 
-🇫🇷 **[Français](README.fr.md)** | 🇬🇧 **[English](README.en.md)** | **
+🇫🇷 **[Français](README.fr.md)** | 🇬🇧 **[English](README.en.md)** | 🔀 **[Flowchart](man_pages/flowchart__printf.png)**
 
 ---
 
