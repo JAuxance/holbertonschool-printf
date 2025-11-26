@@ -1,71 +1,83 @@
 #include "main.h"
+
 /**
- * _printf - a simplified version of printf
- * @format: the format string
+ * _printf - simplified printf implementation
+ * @format: format string provided by the user
  *
- * Return: the number of characters printed
+ * Return: number of characters printed, or -1 on error
  */
 int _printf(const char *format, ...)
 {
-	va_list args;
-	unsigned int index1 = 0;
-	int index2 = 0;
-	int count = 0;
-	int found;
-	t_print_format ops[] = {
-		{'c', print_char_path},
-		{'s', print_string_path},
-		{'d', print_int_path},
-		{'i', print_int_path},
-		{'%', print_percent_path},
-		{'\0', NULL}};
+    va_list args;                 /* variable arguments after 'format' */
+    unsigned int index1 = 0;      /* index to traverse 'format' */
+    int index2;                   /* index to traverse the dispatch table */
+    int count = 0;                /* total number of printed characters */
+    int found;                    /* whether a specifier was matched */
 
-	if (format == NULL)
-		return (-1);
+    /* Dispatch table: maps a specifier to its handler function */
+    t_print_format ops[] = {
+        {'c', print_char_path},
+        {'s', print_string_path},
+        {'d', print_int_path},
+        {'i', print_int_path},
+        {'%', print_percent_path},
+        {'\0', NULL}
+    };
 
-	va_start(args, format);
+    /* Guard: format must not be NULL */
+    if (format == NULL)
+        return (-1);
 
-	while (format[index1] != '\0')
-	{
-		if (format[index1] != '%')
-		{
-			_putchar(format[index1]);
-			count++;
-			index1++;
-			continue;
-		}
+    /* Initialize access to variable arguments */
+    va_start(args, format);
 
-		/* format[i] == '%' */
-		index1++;
-		if (format[index1] == '\0')
-		{
-			va_end(args);
-			return (-1);
-		}
-		found = 0;
-		index2 = 0;
+    /* Walk through the format string */
+    while (format[index1] != '\0')
+    {
+        /* Regular character: print directly */
+        if (format[index1] != '%')
+        {
+            _putchar(format[index1]);
+            count++;
+            index1++;
+            continue;
+        }
 
-		while (ops[index2].specifier != '\0')
-		{
-			if (ops[index2].specifier == format[index1])
+        /* Found '%': advance to the specifier character */
+        index1++;
+        if (format[index1] == '\0')
+        {
+            va_end(args);
+            return (-1);
+        }
 
-			{
+        found = 0;
+        index2 = 0;
 
-				count += ops[index2].print_function(args);
-				found = 1;
-				break;
-			}
-			index2++;
-		}
+        /* Look up a matching specifier in the dispatch table */
+        while (ops[index2].specifier != '\0')
+        {
+            if (ops[index2].specifier == format[index1])
+            {
+                count += ops[index2].print_function(args);
+                found = 1;
+                break;
+            }
+            index2++;
+        }
 
-		if (!found)
-		{
-			_putchar('%');
-			_putchar(format[index1]);
-			count += 2;
-		}
-		index1++;
-	}
-	va_end(args);
-	return (count);
+        /* Unknown specifier: print it literally as "%x" */
+        if (!found)
+        {
+            _putchar('%');
+            _putchar(format[index1]);
+            count += 2;
+        }
+
+        index1++;
+    }
+
+    /* Cleanup and return the total */
+    va_end(args);
+    return (count);
 }
