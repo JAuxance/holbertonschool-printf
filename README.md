@@ -2,7 +2,17 @@
 
 ## C'est quoi ?
 
-Une version simplifiée de `printf` qui affiche du texte/nombre avec des formats.
+Une version simplifiée de la fonction `printf` de la bibliothèque standard C. Cette implémentation permet d'afficher du texte formaté sur la sortie standard (stdout) en utilisant des spécificateurs de conversion.
+
+### Spécificateurs supportés
+
+| Format | Description | Exemple |
+|--------|-------------|---------|
+| `%c` | Affiche un caractère | `_printf("%c", 'A')` → `A` |
+| `%s` | Affiche une chaîne de caractères | `_printf("%s", "Hello")` → `Hello` |
+| `%d` | Affiche un entier décimal (base 10) | `_printf("%d", 42)` → `42` |
+| `%i` | Affiche un entier (identique à %d) | `_printf("%i", -7)` → `-7` |
+| `%%` | Affiche le caractère % littéral | `_printf("%%")` → `%` |
 
 ---
 
@@ -24,20 +34,66 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o test
 
 ---
 
-## Exemples simples
+## Exemples d'utilisation
+
+### Code d'exemple
 
 ```c
 #include "main.h"
 
 int main(void)
 {
-    _printf("Hello\n");
-    _printf("Lettre: %c\n", 'A');
-    _printf("Mot: %s\n", "monde");
-    _printf("Nombre: %d\n", 42);
+    int len;
+
+    _printf("Hello\n");                     /* Affiche: Hello */
+    _printf("Lettre: %c\n", 'A');           /* Affiche: Lettre: A */
+    _printf("Mot: %s\n", "monde");          /* Affiche: Mot: monde */
+    _printf("Nombre: %d\n", 42);            /* Affiche: Nombre: 42 */
+    _printf("Negatif: %i\n", -123);         /* Affiche: Negatif: -123 */
+    _printf("Pourcent: %%\n");              /* Affiche: Pourcent: % */
+
+    len = _printf("Test\n");
+    _printf("Longueur: %d\n", len);         /* Affiche: Longueur: 5 */
 
     return (0);
 }
+```
+
+### Résultat attendu
+
+```
+Hello
+Lettre: A
+Mot: monde
+Nombre: 42
+Negatif: -123
+Pourcent: %
+Test
+Longueur: 5
+```
+
+---
+
+## Tests avec Valgrind
+
+Pour vérifier qu'il n'y a pas de fuites mémoire :
+
+```bash
+# Compiler avec les symboles de debug
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -g *.c -o test
+
+# Exécuter avec Valgrind
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./test
+```
+
+### Résultat attendu (pas de fuites)
+
+```
+==12345== HEAP SUMMARY:
+==12345==     in use at exit: 0 bytes in 0 blocks
+==12345==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==12345==
+==12345== All heap blocks were freed -- no leaks are possible
 ```
 
 ---
