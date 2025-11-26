@@ -1,6 +1,6 @@
-.TH _PRINTF 3 "Novembre 2025" "Version 1.0" "Commandes utilisateur"
-.SH NOM
-_printf \- affiche du texte formaté
+.TH _PRINTF 3 "Novembre 2025" "Version 1.0" "Fonctions de Bibliothèque"
+.SH NAME
+_printf \- imprimer une sortie formatée
 .SH SYNOPSIS
 .B #include "main.h"
 .PP
@@ -8,16 +8,16 @@ _printf \- affiche du texte formaté
 .SH DESCRIPTION
 La fonction
 .BR _printf ()
-produit une sortie formatée selon le format spécifié.
-Elle écrit la sortie sur la sortie standard (stdout).
+produit une sortie selon une chaîne de format spécifiée.
+Elle écrit sur la sortie standard (stdout).
 .PP
 La chaîne
 .I format
-est une chaîne de caractères qui contient du texte ordinaire et des
+est une chaîne de caractères contenant du texte ordinaire et des
 .IR "spécificateurs de conversion"
 qui commencent par le caractère %.
 .PP
-Chaque spécificateur de conversion est remplacé par la valeur de l'argument correspondant.
+Chaque spécificateur de conversion est remplacé par la valeur de l’argument correspondant.
 .SH SPÉCIFICATEURS
 Les spécificateurs de conversion suivants sont supportés :
 .TP
@@ -28,47 +28,47 @@ Affiche un caractère unique.
 Affiche une chaîne de caractères.
 .TP
 .B %d, %i
-Affiche un nombre entier (int) en base 10.
+Affiche un entier décimal (base 10).
 .TP
 .B %%
 Affiche le caractère %.
 .SH VALEUR DE RETOUR
-En cas de succès, retourne le nombre de caractères affichés (sans compter le caractère nul de fin).
+En cas de réussite, retourne le nombre de caractères imprimés
+(sans compter l’octet nul de fin).
 .PP
-En cas d'erreur, retourne -1.
+En cas d’erreur, retourne \-1.
 .SH EXEMPLES
-.PP
 Afficher un caractère :
 .PP
-.in +4n
-.EX
-_printf("Lettre: %c\\n", 'A');
-.EE
-.in
+.RS
+.nf
+_printf("Lettre : %c\\n", 'A');
+.fi
+.RE
 .PP
 Afficher une chaîne :
 .PP
-.in +4n
-.EX
+.RS
+.nf
 _printf("Bonjour %s\\n", "monde");
-.EE
-.in
+.fi
+.RE
 .PP
 Afficher un nombre :
 .PP
-.in +4n
-.EX
-_printf("Nombre: %d\\n", 42);
-.EE
-.in
+.RS
+.nf
+_printf("Nombre : %d\\n", 42);
+.fi
+.RE
 .PP
 Afficher plusieurs valeurs :
 .PP
-.in +4n
-.EX
+.RS
+.nf
 _printf("%s a %d ans\\n", "Alice", 25);
-.EE
-.in
+.fi
+.RE
 .SH VOIR AUSSI
 .BR printf (3)
 .SH AUTEURS

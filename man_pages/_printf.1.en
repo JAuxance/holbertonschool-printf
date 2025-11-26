@@ -1,4 +1,4 @@
-.TH _PRINTF 3 "November 2025" "Version 1.0" "User Commands"
+.TH _PRINTF 3 "November 2025" "Version 1.0" "Library Functions"
 .SH NAME
 _printf \- print formatted output
 .SH SYNOPSIS
@@ -37,38 +37,37 @@ Upon successful completion, returns the number of characters printed (excluding 
 .PP
 On error, returns -1.
 .SH EXAMPLES
-.PP
 Print a character:
 .PP
-.in +4n
-.EX
+.RS
+.nf
 _printf("Letter: %c\\n", 'A');
-.EE
-.in
+.fi
+.RE
 .PP
 Print a string:
 .PP
-.in +4n
-.EX
+.RS
+.nf
 _printf("Hello %s\\n", "world");
-.EE
-.in
+.fi
+.RE
 .PP
 Print a number:
 .PP
-.in +4n
-.EX
+.RS
+.nf
 _printf("Number: %d\\n", 42);
-.EE
-.in
+.fi
+.RE
 .PP
 Print multiple values:
 .PP
-.in +4n
-.EX
+.RS
+.nf
 _printf("%s is %d years old\\n", "Alice", 25);
-.EE
-.in
+.fi
+.RE
 .SH SEE ALSO
 .BR printf (3)
 .SH AUTHORS
