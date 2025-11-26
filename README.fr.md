@@ -132,10 +132,16 @@ man ./man_pages/_printf.1.fr
 
 ---
 
+<img width="2254" height="4985" alt="flowchart printg (2)" src="https://github.com/user-attachments/assets/5af85f79-b41f-4b03-b8a3-2d5b9bdc1816" />
+
+
+---
+
 ## Auteurs
 
 - Lucas METTETAL
 - Auxance JOURDAN
+
 
 ---
 
