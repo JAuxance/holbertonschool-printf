@@ -13,9 +13,6 @@ Une version simplifiée de `printf` qui affiche du texte/nombre avec des formats
 - **Éditeur** : vi, vim, emacs ou VS Code
 - **Git** : Pour le versioning du code
 - **Style** : Code conforme au style Betty
-- Tous les fichiers doivent se terminer par une nouvelle ligne
-- Pas plus de 5 fonctions par fichier
-- Fonctions autorisées : `write`, `malloc`, `free`, `va_start`, `va_end`, `va_copy`, `va_arg`
 
 ---
 
