@@ -1,0 +1,75 @@
+.TH _PRINTF 3 "Novembre 2025" "Version 1.0" "Fonctions de Bibliothèque"
+.SH NAME
+_printf \- imprimer une sortie formatée
+.SH SYNOPSIS
+.B #include "main.h"
+.PP
+.BI "int _printf(const char *" format ", ...);"
+.SH DESCRIPTION
+La fonction
+.BR _printf ()
+produit une sortie selon une chaîne de format spécifiée.
+Elle écrit sur la sortie standard (stdout).
+.PP
+La chaîne
+.I format
+est une chaîne de caractères contenant du texte ordinaire et des
+.IR "spécificateurs de conversion"
+qui commencent par le caractère %.
+.PP
+Chaque spécificateur de conversion est remplacé par la valeur de l’argument correspondant.
+.SH SPÉCIFICATEURS
+Les spécificateurs de conversion suivants sont supportés :
+.TP
+.B %c
+Affiche un caractère unique.
+.TP
+.B %s
+Affiche une chaîne de caractères.
+.TP
+.B %d, %i
+Affiche un entier décimal (base 10).
+.TP
+.B %%
+Affiche le caractère %.
+.SH VALEUR DE RETOUR
+En cas de réussite, retourne le nombre de caractères imprimés
+(sans compter l’octet nul de fin).
+.PP
+En cas d’erreur, retourne \-1.
+.SH EXEMPLES
+Afficher un caractère :
+.PP
+.RS
+.nf
+_printf("Lettre : %c\\n", 'A');
+.fi
+.RE
+.PP
+Afficher une chaîne :
+.PP
+.RS
+.nf
+_printf("Bonjour %s\\n", "monde");
+.fi
+.RE
+.PP
+Afficher un nombre :
+.PP
+.RS
+.nf
+_printf("Nombre : %d\\n", 42);
+.fi
+.RE
+.PP
+Afficher plusieurs valeurs :
+.PP
+.RS
+.nf
+_printf("%s a %d ans\\n", "Alice", 25);
+.fi
+.RE
+.SH VOIR AUSSI
+.BR printf (3)
+.SH AUTEURS
+Projet Holberton School

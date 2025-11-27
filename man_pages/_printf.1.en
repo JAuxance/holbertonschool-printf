@@ -1,0 +1,74 @@
+.TH _PRINTF 3 "November 2025" "Version 1.0" "Library Functions"
+.SH NAME
+_printf \- print formatted output
+.SH SYNOPSIS
+.B #include "main.h"
+.PP
+.BI "int _printf(const char *" format ", ...);"
+.SH DESCRIPTION
+The
+.BR _printf ()
+function produces output according to a specified format.
+It writes output to the standard output (stdout).
+.PP
+The
+.I format
+string is a character string that contains ordinary text and
+.IR "conversion specifiers"
+which begin with the % character.
+.PP
+Each conversion specifier is replaced by the value of the corresponding argument.
+.SH SPECIFIERS
+The following conversion specifiers are supported:
+.TP
+.B %c
+Prints a single character.
+.TP
+.B %s
+Prints a string of characters.
+.TP
+.B %d, %i
+Prints a decimal (base 10) integer.
+.TP
+.B %%
+Prints the % character.
+.SH RETURN VALUE
+Upon successful completion, returns the number of characters printed (excluding the null byte used to end output).
+.PP
+On error, returns -1.
+.SH EXAMPLES
+Print a character:
+.PP
+.RS
+.nf
+_printf("Letter: %c\\n", 'A');
+.fi
+.RE
+.PP
+Print a string:
+.PP
+.RS
+.nf
+_printf("Hello %s\\n", "world");
+.fi
+.RE
+.PP
+Print a number:
+.PP
+.RS
+.nf
+_printf("Number: %d\\n", 42);
+.fi
+.RE
+.PP
+Print multiple values:
+.PP
+.RS
+.nf
+_printf("%s is %d years old\\n", "Alice", 25);
+.fi
+.RE
+.SH SEE ALSO
+.BR printf (3)
+.SH AUTHORS
+Holberton School Project
