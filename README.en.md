@@ -1,6 +1,6 @@
 # _printf
 
-[![fr](https://img.shields.io/badge/lang-fr-blue.svg)](README.fr.md)
+[![fr](https://img.shields.io/badge/lang-fr-blue.svg)](README.fr.md) [![man-page](https://img.shields.io/badge/man%20page-en-red)](man/_printf.1.en)
 
 ## What is it?
 
