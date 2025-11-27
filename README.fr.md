@@ -1,7 +1,6 @@
 # _printf
 
-[![en](https://img.shields.io/badge/lang-en-red.svg)](README.en.md)
-
+[![en](https://img.shields.io/badge/lang-en-red.svg)](README.en.md)                                        [![man-page](https://img.shields.io/badge/man%20page-fr-blue)](man/_printf.3)
 ## C'est quoi ?
 
 Une version simplifiée de la fonction `printf` de la bibliothèque standard C. Cette implémentation permet d'afficher du texte formaté sur la sortie standard (stdout) en utilisant des spécificateurs de conversion.
