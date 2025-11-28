@@ -13,6 +13,7 @@ Une version simplifiée de la fonction `printf` de la bibliothèque standard C. 
 | `%s` | Affiche une chaîne de caractères | `_printf("%s", "Hello")` → `Hello` |
 | `%d` | Affiche un entier décimal (base 10) | `_printf("%d", 42)` → `42` |
 | `%i` | Affiche un entier (identique à %d) | `_printf("%i", -7)` → `-7` |
+| `%b` | Affiche un entier non signé en binaire | `_printf("%b", 1024)` → `10000000000` |
 | `%%` | Affiche le caractère % littéral | `_printf("%%")` → `%` |
 
 ---
@@ -52,6 +53,7 @@ int main(void)
     _printf("Nombre: %d\n", 42);            /* Affiche: Nombre: 42 */
     _printf("Negatif: %i\n", -123);         /* Affiche: Negatif: -123 */
     _printf("Pourcent: %%\n");              /* Affiche: Pourcent: % */
+    _printf("Binaire: %b\n", 13);           /* Affiche: Binaire: 1101 */
 
     len = _printf("Test\n");
     _printf("Longueur: %d\n", len);         /* Affiche: Longueur: 5 */
@@ -71,6 +73,7 @@ Negatif: -123
 Pourcent: %
 Test
 Longueur: 5
+Binaire: 1101
 ```
 
 ---

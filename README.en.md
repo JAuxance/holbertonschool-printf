@@ -14,6 +14,7 @@ A simplified version of the `printf` function from the C standard library. This 
 | `%s` | Prints a string | `_printf("%s", "Hello")` → `Hello` |
 | `%d` | Prints a decimal integer (base 10) | `_printf("%d", 42)` → `42` |
 | `%i` | Prints an integer (same as %d) | `_printf("%i", -7)` → `-7` |
+| `%b` | Prints an unsigned integer in binary | `_printf("%b", 1024)` → `10000000000` |
 | `%%` | Prints the literal % character | `_printf("%%")` → `%` |
 
 ---
@@ -53,6 +54,7 @@ int main(void)
     _printf("Number: %d\n", 42);            /* Output: Number: 42 */
     _printf("Negative: %i\n", -123);        /* Output: Negative: -123 */
     _printf("Percent: %%\n");               /* Output: Percent: % */
+    _printf("Binary: %b\n", 13);            /* Output: Binary: 1101 */
 
     len = _printf("Test\n");
     _printf("Length: %d\n", len);           /* Output: Length: 5 */
@@ -72,6 +74,7 @@ Negative: -123
 Percent: %
 Test
 Length: 5
+Binary: 1101
 ```
 
 ---

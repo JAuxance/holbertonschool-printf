@@ -30,6 +30,9 @@ Prints a string of characters.
 .B %d, %i
 Prints a decimal (base 10) integer.
 .TP
+.B %b
+Prints an unsigned integer as a binary string (base 2).
+.TP
 .B %%
 Prints the % character.
 .SH RETURN VALUE
@@ -58,6 +61,14 @@ Print a number:
 .RS
 .nf
 _printf("Number: %d\\n", 42);
+.fi
+.RE
+.PP
+Print an unsigned integer in binary:
+.PP
+.RS
+.nf
+_printf("Binary: %b\\n", 1024);  /* prints 10000000000 */
 .fi
 .RE
 .PP

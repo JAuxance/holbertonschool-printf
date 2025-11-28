@@ -30,6 +30,9 @@ Affiche une chaîne de caractères.
 .B %d, %i
 Affiche un entier décimal (base 10).
 .TP
+.B %b
+Affiche un entier non signé en binaire (base 2).
+.TP
 .B %%
 Affiche le caractère %.
 .SH VALEUR DE RETOUR
@@ -59,6 +62,14 @@ Afficher un nombre :
 .RS
 .nf
 _printf("Nombre : %d\\n", 42);
+.fi
+.RE
+.PP
+Afficher un entier non signé en binaire :
+.PP
+.RS
+.nf
+_printf("Binaire : %b\\n", 1024);  /* affiche 10000000000 */
 .fi
 .RE
 .PP
