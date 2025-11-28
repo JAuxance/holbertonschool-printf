@@ -8,6 +8,9 @@
 int print_char(char c);
 int print_string(char *s);
 
+/* - binary display functions - */
+int print_binary(unsigned int n);
+
 /* - number display functions - */
 int print_int(int n);
 

@@ -6,7 +6,7 @@
  *
  * Return: number of characters printed
  */
-int print_binary_path(unsigned int n)
+int print_binary(unsigned int n)
 {
 	int count = 0;
 	int i = 0;
@@ -29,4 +29,11 @@ int print_binary_path(unsigned int n)
 		count += _putchar(bits[i] + '0');
 	}
 	return (count);
+}
+
+int print_binary_path(va_list args)
+{
+	unsigned int n = va_arg(args, unsigned int);
+
+	return (print_binary_path(n));
 }
