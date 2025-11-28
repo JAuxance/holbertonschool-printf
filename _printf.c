@@ -20,8 +20,8 @@ int _printf(const char *format, ...)
         {'s', print_string_path},
         {'d', print_int_path},
         {'i', print_int_path},
-        {'%', print_percent_path},
         {'b', print_binary_path},
+        {'%', print_percent_path},
         {'\0', NULL}
     };
 
