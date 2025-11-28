@@ -21,7 +21,9 @@ int _printf(const char *format, ...)
         {'d', print_int_path},
         {'i', print_int_path},
         {'%', print_percent_path},
-        {'\0', NULL}};
+        {'b', print_binary_path},
+        {'\0', NULL}
+    };
 
     /* Guard: format must not be NULL */
     if (format == NULL)

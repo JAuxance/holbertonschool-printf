@@ -16,6 +16,7 @@ int print_char_path(va_list args);
 int print_string_path(va_list args);
 int print_int_path(va_list args);
 int print_percent_path(va_list args);
+int print_binary_path(va_list args);
 
 /* - mini-printf - */
 int _printf(const char *format, ...);
