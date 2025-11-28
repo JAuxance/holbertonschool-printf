@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * print_binary_path - extracts an unsigned int from
+ * print_binary - extracts an unsigned int from
  * va_list and prints it in binary
  * @n: the unsigned int to print
  *
@@ -30,10 +30,16 @@ int print_binary(unsigned int n)
 	}
 	return (count);
 }
-
+/**
+ * print_binary_path - path function to extract
+ * unsigned int from va_list
+ * @args: va_list containing the unsigned int
+ *
+ * Return: int
+ */
 int print_binary_path(va_list args)
 {
 	unsigned int n = va_arg(args, unsigned int);
 
-	return (print_binary_path(n));
+	return (print_binary(n));
 }
