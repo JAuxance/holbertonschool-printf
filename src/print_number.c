@@ -9,31 +9,31 @@
  */
 int print_int(int n)
 {
-	int count = 0;
+	int chars_printed = 0;
 	char digit;
 
 	/* Special case: INT_MIN cannot be negated safely in C. */
 	/* Print "-2" manually, then process the remaining digits. */
 	if (n == INT_MIN)
 	{
-		count += write(1, "-", 1);
-		count += write(1, "2", 1);
-		count += print_int(147483648);
-		return (count);
+		chars_printed += write(1, "-", 1);
+		chars_printed += write(1, "2", 1);
+		chars_printed += print_int(147483648);
+		return (chars_printed);
 	}
 	/* Handle negative numbers */
 	if (n < 0)
 	{
-		count += write(1, "-", 1);
+		chars_printed += write(1, "-", 1);
 		n = -n;
 	}
 	/* Recursively print higher-order digits if needed */
 	if (n / 10)
-		count += print_int(n / 10);
+		chars_printed += print_int(n / 10);
 	/* Convert the last digit and write it */
 	digit = (n % 10) + '0';
-	count += write(1, &digit, 1);
-	return (count);
+	chars_printed += write(1, &digit, 1);
+	return (chars_printed);
 }
 
 /**

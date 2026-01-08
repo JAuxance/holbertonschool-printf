@@ -28,15 +28,15 @@ int _printf(const char *format, ...);
 int _putchar(char character);
 
 /**
- * struct print_format - structure to map format specifiers to functions
+ * struct format_handler - structure to map format specifiers to functions
  * @specifier: format specifier character
  * @print_function: pointer to the corresponding print function
  */
 
-typedef struct print_format
+typedef struct format_handler
 {
 	char specifier;
 	int (*print_function)(va_list args);
-} t_print_format;
+} t_format_handler;
 
 #endif /* MAIN_H */

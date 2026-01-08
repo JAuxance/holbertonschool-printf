@@ -10,21 +10,21 @@
 int print_string_path(va_list args)
 {
 	char *str = va_arg(args, char *);
-	int count = 0;
-	int i = 0;
+	int chars_printed = 0;
+	int current_index = 0;
 
 	/* If the string is NULL, print "(null)" to avoid dereferencing NULL */
 	if (str == NULL)
 		str = "(null)";
 
 	/* Walk the string and print one character at a time */
-	while (str[i] != '\0')
+	while (str[current_index] != '\0')
 	{
-		_putchar(str[i]);
-		count++;
-		i++;
+		_putchar(str[current_index]);
+		chars_printed++;
+		current_index++;
 	}
-	return (count);
+	return (chars_printed);
 }
 
 /**

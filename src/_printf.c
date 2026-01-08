@@ -9,13 +9,13 @@
 int _printf(const char *format, ...)
 {
     va_list args;            /* stockage of variadic arguments */
-    unsigned int index1 = 0; /* current position in the 'format' chain */
-    int index2;              /* index to traverse the table 'ops' */
-    int count = 0;           /* total number of printed characters */
+    unsigned int current_pos = 0; /* current position in the 'format' chain */
+    int spec_index;          /* index to traverse the table 'ops' */
+    int chars_printed = 0;   /* total number of printed characters */
     int found;               /* (0 or 1) indicating whether a known specifier has been found */
 
     /* An array of structures with a format character and function pointer */
-    t_print_format ops[] = {
+    t_format_handler ops[] = {
         {'c', print_char_path},
         {'s', print_string_path},
         {'d', print_int_path},
@@ -33,21 +33,21 @@ int _printf(const char *format, ...)
     va_start(args, format);
 
     /* Walk through the format string */
-    while (format[index1] != '\0')
+    while (format[current_pos] != '\0')
     {
         /* Regular character: print directly */
-        if (format[index1] != '%')
+        if (format[current_pos] != '%')
         {
-            _putchar(format[index1]);
-            count++;
-            index1++;
+            _putchar(format[current_pos]);
+            chars_printed++;
+            current_pos++;
             continue;
         }
 
         /* Found '%': advance to the specifier character */
-        index1++;
+        current_pos++;
 
-        if (format[index1] == '\0') /*If this next character is the null terminator,
+        if (format[current_pos] == '\0') /*If this next character is the null terminator,
                                      it means ends with a single %,
                                      In that case I call va_end and return -1.*/
         {
@@ -56,32 +56,32 @@ int _printf(const char *format, ...)
         }
         /*preparation of ops[]*/
         found = 0;
-        index2 = 0;
+        spec_index = 0;
 
         /* while in the table ops[] */
-        while (ops[index2].specifier != '\0')
+        while (ops[spec_index].specifier != '\0')
         {
-            if (ops[index2].specifier == format[index1])
+            if (ops[spec_index].specifier == format[current_pos])
             {
-                count += ops[index2].print_function(args);
+                chars_printed += ops[spec_index].print_function(args);
                 found = 1;
                 break;
             }
-            index2++;
+            spec_index++;
         }
 
         /* Unknown specifier: print it literally as "%x" */
         if (!found)
         {
             _putchar('%');
-            _putchar(format[index1]);
-            count += 2;
+            _putchar(format[current_pos]);
+            chars_printed += 2;
         }
 
-        index1++;
+        current_pos++;
     }
 
     /* Clean up and return the total number of characters printed*/
     va_end(args);
-    return (count);
+    return (chars_printed);
 }

@@ -8,8 +8,8 @@
  */
 int print_binary(unsigned int n)
 {
-	int count = 0;
-	int i = 0;
+	int chars_printed = 0;
+	int binary_index = 0;
 	int bits[32];
 
 	if (n == 0)
@@ -19,16 +19,16 @@ int print_binary(unsigned int n)
 	}
 	while (n > 0)
 	{
-		bits[i] = n % 2;
+		bits[binary_index] = n % 2;
 		n = n / 2;
-		i++;
+		binary_index++;
 	}
 
-	while (i--)
+	while (binary_index--)
 	{
-		count += _putchar(bits[i] + '0');
+		chars_printed += _putchar(bits[binary_index] + '0');
 	}
-	return (count);
+	return (chars_printed);
 }
 /**
  * print_binary_path - path function to extract
