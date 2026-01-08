@@ -22,11 +22,11 @@ make test
 
 ## ✨ Features
 
-- ✅ Format specifiers: `%c`, `%s`, `%d`, `%i`, `%b`, `%%`
-- ✅ 17 automated tests (100% pass rate)
-- ✅ Professional build system with Makefile
-- ✅ Well-organized codebase
-- ✅ Comprehensive documentation (EN & FR)
+- Format specifiers: `%c`, `%s`, `%d`, `%i`, `%b`, `%%`
+- 17 automated tests (100% pass rate)
+- Professional build system with Makefile
+- Well-organized codebase
+- Comprehensive documentation (EN & FR)
 
 ## 📋 Supported Format Specifiers
 
