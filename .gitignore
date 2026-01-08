@@ -1,0 +1,21 @@
+# Build artifacts
+build/
+bin/
+*.o
+*.a
+*.so
+
+# Test artifacts
+test_printf_temp
+test_printf_temp.c
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# System
+.DS_Store
+*.app
